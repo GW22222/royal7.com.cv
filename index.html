@@ -1328,7 +1328,7 @@
         .hidden {
             display: none !important;
         }
-        
+
         /* Ajustes para menu em telas pequenas (mobile/tablet) */
         @media (max-width: 991px) {
             .nav-desktop {
@@ -1365,6 +1365,70 @@
             .mobile-cta {
                 margin-top: 18px;
             }
+        }
+
+        /* Toast / Notificações */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 4000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast {
+            min-width: 260px;
+            max-width: 360px;
+            background: rgba(20,20,30,0.95);
+            color: #fff;
+            padding: 12px 14px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            pointer-events: auto;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast .icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .toast.success .icon { background: linear-gradient(135deg,#10B981,#059669); }
+        .toast.info .icon { background: linear-gradient(135deg,#4F46E5,#7C3AED); }
+        .toast.warn .icon { background: linear-gradient(135deg,#F59E0B,#F97316); }
+
+        .toast .body {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.2;
+        }
+
+        .toast .close {
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.8);
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -1515,7 +1579,27 @@
         </div>
     </section>
 
+    <!-- Toast container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <!-- Modal de Pagamento PIX -->
+    <!-- Modal de Captura de Gmail (antes do PIX) -->
+    <div class="modal-overlay" id="emailModal">
+        <div class="modal-pix">
+            <button class="modal-close" id="closeEmailModal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h2 class="modal-title">Informe seu Gmail</h2>
+            <p class="modal-subtitle">Informe o seu Gmail para onde enviaremos o link do banco de dados. Após confirmar, você será redirecionado para a tela de pagamento.</p>
+
+            <div style="text-align:center; margin-top:10px;">
+                <input id="emailInput" type="email" placeholder="seunome@gmail.com" style="width:100%;padding:12px;border-radius:8px;border:1px solid var(--card-border);margin:10px 0;background:transparent;color:var(--text);">
+                <button class="btn btn-block" id="emailSubmit">ENVIAR LINK E CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="pixModal">
         <div class="modal-pix">
             <button class="modal-close" id="closePixModal">
@@ -1523,10 +1607,10 @@
             </button>
             
             <h2 class="modal-title">Pagamento via PIX</h2>
-            <p class="modal-subtitle">Faça o pagamento de <strong>R$ 697,00</strong> via PIX para liberar seu acesso ao curso</p>
+            <p class="modal-subtitle">Faça o pagamento de <strong>R$ 380,87</strong> via PIX para liberar seu acesso ao curso</p>
             
             <div class="pix-code-container">
-                <p class="mb-2">Faça o pagamento de <strong>R$ 697,00</strong> via PIX para liberar seu acesso ao curso</p>
+                <p class="mb-2">Faça o pagamento de <strong>R$ 380,87</strong> via PIX para liberar seu acesso ao curso</p>
                 
                 <!-- Logo no lugar do QR Code -->
                 <div class="pix-logo-container">
@@ -1550,7 +1634,7 @@
                     <li>Acesse a área PIX</li>
                     <li>Escolha "Pagar com QR Code" ou "PIX Copia e Cola"</li>
                     <li>Escaneie o QR Code ou cole a chave PIX</li>
-                    <li>Confirme o pagamento de R$ 697,00</li>
+                    <li>Confirme o pagamento de R$ 380,87</li>
                     <li>Clique no botão abaixo após o pagamento</li>
                 </ol>
             </div>
@@ -1841,16 +1925,16 @@
             <div class="pricing-container">
                 <div class="pricing-card">
                     <div class="pricing-badge">OFERTA ESPECIAL</div>
-                    <h3 class="pricing-title">Curso Completo</h3>
-                    <p>Acesso a todos os módulos, materiais exclusivos e suporte premium.</p>
+                    <h3 class="pricing-title">Banco de Dados com Mentoria</h3>
+                    <p>Banco de dados com mentoria, materiais exclusivos e suporte premium.</p>
                     
                     <div class="pricing-price">
                         <div class="old-price">De R$ 1.497,00</div>
-                        <div class="new-price">R$ 697,00</div>
-                        <div class="installments">ou 12x de R$ 64,90</div>
+                        <div class="new-price">R$ 380,87</div>
                     </div>
                     
                     <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Banco de dados (3.786k CC live) e mentoria</li>
                         <li><i class="fas fa-check"></i> Acesso vitalício a todas as aulas</li>
                         <li><i class="fas fa-check"></i> Lista atualizada de fornecedores</li>
                         <li><i class="fas fa-check"></i> Planilhas de gestão de lara</li>
@@ -2064,6 +2148,162 @@
             mobileMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
+
+        // --- Toast / Notificações ---
+        function showToast(message, type = 'info', timeout = 2500) {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+
+            const icon = document.createElement('div');
+            icon.className = 'icon';
+            icon.innerHTML = type === 'success' ? '<i class="fas fa-check"></i>' : (type === 'warn' ? '<i class="fas fa-exclamation"></i>' : '<i class="fas fa-info"></i>');
+
+            const body = document.createElement('div');
+            body.className = 'body';
+            body.textContent = message;
+
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'close';
+            closeBtn.innerHTML = '&times;';
+            closeBtn.addEventListener('click', () => hideToast(toast));
+
+            toast.appendChild(icon);
+            toast.appendChild(body);
+            toast.appendChild(closeBtn);
+
+            container.appendChild(toast);
+
+            // trigger show
+            requestAnimationFrame(() => toast.classList.add('show'));
+
+            const t = setTimeout(() => {
+                hideToast(toast);
+                clearTimeout(t);
+            }, timeout);
+        }
+
+        function hideToast(toast) {
+            toast.classList.remove('show');
+            toast.addEventListener('transitionend', () => {
+                if (toast.parentNode) toast.parentNode.removeChild(toast);
+            });
+        }
+
+        // Ligar notificações aos botões de compra
+        const buyButtons = ['buyNowHeader', 'buyNowHero', 'buyNowMobile', 'buyNowPricing'];
+        buyButtons.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('click', () => {
+                    // abrir modal de captura de email antes do pagamento
+                    const emailModal = document.getElementById('emailModal');
+                    if (emailModal) {
+                        emailModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        const emailInput = document.getElementById('emailInput');
+                        if (emailInput) emailInput.focus();
+                    } else {
+                        // fallback: abrir PIX diretamente
+                        const pixModal = document.getElementById('pixModal');
+                        if (pixModal) pixModal.classList.add('active');
+                    }
+                    showToast('Preencha seu Gmail para receber o link e continuar o pagamento.', 'info');
+                });
+            }
+        });
+
+        // Quando pagamento confirmado
+        const paymentConfirmedBtn = document.getElementById('paymentConfirmed');
+        if (paymentConfirmedBtn) {
+            paymentConfirmedBtn.addEventListener('click', () => {
+                showToast('Pagamento confirmado — bem-vindo! Acesso liberado.', 'success');
+                const pixModal = document.getElementById('pixModal');
+                if (pixModal) pixModal.classList.remove('active');
+                // redirect to telegram or simulate
+            });
+        }
+
+        // Email modal handlers
+        const closeEmailBtn = document.getElementById('closeEmailModal');
+        const emailModalEl = document.getElementById('emailModal');
+        const emailSubmitBtn = document.getElementById('emailSubmit');
+        const emailInputEl = document.getElementById('emailInput');
+
+        if (closeEmailBtn) {
+            closeEmailBtn.addEventListener('click', () => {
+                if (emailModalEl) emailModalEl.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        }
+
+        if (emailSubmitBtn) {
+            emailSubmitBtn.addEventListener('click', () => {
+                const email = (emailInputEl && emailInputEl.value) ? emailInputEl.value.trim() : '';
+                // validação simples para Gmail
+                if (!email || !/^[^\s@]+@gmail\.com$/i.test(email)) {
+                    showToast('Informe um Gmail válido (ex.: seunome@gmail.com).', 'warn');
+                    if (emailInputEl) emailInputEl.focus();
+                    return;
+                }
+
+                // simula envio do link
+                showToast(`Link enviado para ${email}`, 'info');
+                if (emailModalEl) emailModalEl.classList.remove('active');
+                document.body.style.overflow = 'auto';
+
+                // abrir modal PIX após um pequeno delay
+                setTimeout(() => {
+                    const pixModal = document.getElementById('pixModal');
+                    if (pixModal) pixModal.classList.add('active');
+                }, 700);
+            });
+        }
+
+        // Notificações de compras com nomes aleatórios
+        const purchaserNames = [
+            'João Silva', 'Maria Oliveira', 'Carlos Souza', 'Ana Pereira', 'Lucas Almeida',
+            'Mariana Costa', 'Pedro Santos', 'Beatriz Rodrigues', 'Rafael Lima', 'Fernanda Gomes',
+            'Gabriel Ferreira', 'Sofia Carvalho', 'Bruno Ribeiro', 'Camila Martins', 'Thiago Araújo',
+            'Paula Mendes', 'Felipe Duarte', 'Juliana Nunes', 'Diego Rocha', 'Aline Barbosa'
+        ];
+
+        function randomName() {
+            return purchaserNames[Math.floor(Math.random() * purchaserNames.length)];
+        }
+
+        function showPurchaseNotification(name, price = 'R$ 380,87') {
+            showToast(`${name} comprou por ${price}.`, 'success', 2500);
+        }
+
+        // Quando o usuário clica em comprar, também exibe uma notificação com nome aleatório
+        buyButtons.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('click', () => {
+                    // pequena latência para parecer natural
+                    setTimeout(() => showPurchaseNotification(randomName(), 'R$ 380,87'), 900);
+                });
+            }
+        });
+
+        // Simulação periódica (opcional) de compras recentes — ativa por padrão
+        (function simulatePurchases() {
+            const enabled = true; // mude para false para desativar a simulação
+            if (!enabled) return;
+
+            function scheduleNext() {
+                const interval = 8000 + Math.floor(Math.random() * 7000); // ~8s-15s
+                setTimeout(() => {
+                    showPurchaseNotification(randomName(), 'R$ 380,87');
+                    scheduleNext();
+                }, interval);
+            }
+
+            scheduleNext();
+        })();
         
         mobileMenuClose.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
@@ -2170,10 +2410,7 @@
         }
         
         // Event listeners para abrir modal
-        if (buyNowHero) buyNowHero.addEventListener('click', openPixModal);
-        if (buyNowPricing) buyNowPricing.addEventListener('click', openPixModal);
-        if (buyNowHeader) buyNowHeader.addEventListener('click', openPixModal);
-        if (buyNowMobile) buyNowMobile.addEventListener('click', openPixModal);
+        // NOTE: abertura do modal PIX agora é feita após captura do email (veja handlers acima)
         
         // Event listener para fechar modal
         if (closePixModal) closePixModal.addEventListener('click', closePixModalFunc);
