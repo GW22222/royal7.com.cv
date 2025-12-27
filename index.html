@@ -1656,136 +1656,22 @@
             <p class="section-subtitle">Cartões live para testes e demonstração aproveite,</p>
             
             <div class="cards-grid">
-                <!-- Cartão 1 -->
-                <div class="card-generator-container">
-                    <div class="card-sample">
-                        <div class="card-header">
-                            <div class="card-bank">PICPAY BANK</div>
-                            <div class="card-brand">
-                                <i class="fab fa-cc-mastercard"></i>
-                            </div>
-                        </div>
-                        <div class="card-number">2340 7463 5006 8030</div>
-                        <div class="card-details">
-                            <div class="card-holder">
-                                <div class="card-label">Titular do Cartão</div>
-                                <div class="card-value">RAFAEL SOUZA LIMA</div>
-                            </div>
-                            <div class="card-expiry">
-                                <div class="card-label">Validade</div>
-                                <div class="card-value">06/2032</div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-type">CREDIT</div>
-                            <div class="card-level">GOLD</div>
-                        </div>
+                <div id="cardGeneratorApp" style="text-align:center; padding: 20px;">
+                    <div style="margin-bottom:14px; color:var(--text-light);"></div>
+                    <div style="display:flex; justify-content:center;">
+                        <button id="generateTestCardBtn" class="btn btn-large">Gerar cartão teste gratuito — 100% live</button>
                     </div>
-                    
-                    <button class="copy-card-btn" data-card="1">
-                        <i class="far fa-copy"></i> Copiar Dados do Cartão 1 (ATX)
-                    </button>
-                    
-                    <div class="card-info">
-                        <p><strong>CPF:</strong> 444.638.129-68</p>
-                        <p><strong>CVV:</strong> 872</p>
-                        <p><strong>BIN:</strong> 234074</p>
-                        <p><strong>País:</strong> Brasil (BR)</p>
-                        <p><strong>Bandeira:</strong> MASTERCARD</p>
-                    </div>
-                </div>
-                
-                <!-- Cartão 2 -->
-                <div class="card-generator-container">
-                    <div class="card-sample">
-                        <div class="card-header">
-                            <div class="card-bank">PICPAY BANK</div>
-                            <div class="card-brand">
-                                <i class="fab fa-cc-mastercard"></i>
-                            </div>
-                        </div>
-                        <div class="card-number">2227 6399 0031 4038</div>
-                        <div class="card-details">
-                            <div class="card-holder">
-                                <div class="card-label">Titular do Cartão</div>
-                                <div class="card-value">FELIPE ALVES DUARTE</div>
-                            </div>
-                            <div class="card-expiry">
-                                <div class="card-label">Validade</div>
-                                <div class="card-value">11/2029</div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-type">CREDIT</div>
-                            <div class="card-level">PLATINUM</div>
-                        </div>
-                    </div>
-                    
-                    <button class="copy-card-btn" data-card="2">
-                        <i class="far fa-copy"></i> Copiar Dados do Cartão 2 (ATX)
-                    </button>
-                    
-                    <div class="card-info">
-                        <p><strong>CPF:</strong> 577.424.387-71</p>
-                        <p><strong>CVV:</strong> 318</p>
-                        <p><strong>BIN:</strong> 222763</p>
-                        <p><strong>País:</strong> Brasil (BR)</p>
-                        <p><strong>Bandeira:</strong> MASTERCARD</p>
-                    </div>
-                </div>
-                
-                <!-- Cartão 3 -->
-                <div class="card-generator-container">
-                    <div class="card-sample">
-                        <div class="card-header">
-                            <div class="card-bank">BANCO SANTANDER</div>
-                            <div class="card-brand">
-                                <i class="fab fa-cc-mastercard"></i>
-                            </div>
-                        </div>
-                        <div class="card-number">5428 2044 3614 2724</div>
-                        <div class="card-details">
-                            <div class="card-holder">
-                                <div class="card-label">Titular do Cartão</div>
-                                <div class="card-value">THIAGO SANTOS CARVALHO</div>
-                            </div>
-                            <div class="card-expiry">
-                                <div class="card-label">Validade</div>
-                                <div class="card-value">07/2028</div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-type">CREDIT</div>
-                            <div class="card-level">PLATINUM</div>
-                        </div>
-                    </div>
-                    
-                    <button class="copy-card-btn" data-card="3">
-                        <i class="far fa-copy"></i> Copiar Dados do Cartão 3 (ATX)
-                    </button>
-                    
-                    <div class="card-info">
-                        <p><strong>CPF:</strong> 209.701.091-13</p>
-                        <p><strong>CVV:</strong> 577</p>
-                        <p><strong>BIN:</strong> 542820</p>
-                        <p><strong>País:</strong> Brasil (BR)</p>
-                        <p><strong>Bandeira:</strong> MASTERCARD</p>
-                    </div>
+                    <div id="generatedCardContainer" style="margin-top:20px; display:flex; justify-content:center;"></div>
                 </div>
             </div>
             
-            <div class="pix-instructions mt-3" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);">
-                <p style="font-weight: 700; margin-bottom: 10px; color: var(--warning);">⚠️ Aviso:</p>
-                <p style="color: var(--text-light); font-size: 0.95rem;">
-                    Cartões validados e live apenas para teste do cliente. válidos para compras. Para adquirir o curso, pague via PIX.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Telegram Section (SEM BOTÃO) -->
-    <section class="telegram-section" id="telegram">
-        <div class="container">
+            <!-- aviso removido conforme solicitado -->
+                <div class="pix-instructions mt-3" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);">
+                    <p style="font-weight: 700; margin-bottom: 10px; color: var(--warning);">⚠️ Aviso:</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">
+                        Cartões validados e live apenas para teste do cliente. válidos para compras. Para adquirir o banco de dados e a mentoria, pague via PIX.
+                    </p>
+                </div>
             <div class="telegram-icon">
                 <i class="fab fa-telegram"></i>
             </div>
@@ -2521,6 +2407,145 @@ Tipo: CREDIT
                 });
             });
         });
+
+        // --- Gerador de cartões (novo fluxo) ---
+        (function() {
+            const maxGenerations = 3;
+            const remainingEl = document.getElementById('remainingCount');
+            const generateBtn = document.getElementById('generateTestCardBtn');
+            const output = document.getElementById('generatedCardContainer');
+
+            let used = JSON.parse(sessionStorage.getItem('generatedUsed') || '[]');
+            let count = parseInt(sessionStorage.getItem('generatedCount') || String(used.length), 10) || 0;
+            // remainingCount element was removed from UI; keep logic internal
+
+            function parseCardText(text) {
+                const get = (label) => {
+                    const re = new RegExp(label + ':\\s*(.+)', 'i');
+                    const m = text.match(re);
+                    return m ? m[1].trim() : '';
+                };
+                return {
+                    banco: get('BANCO'),
+                    bandeira: get('BANDEIRA'),
+                    pais: get('PAÍS'),
+                    nome: get('Nome'),
+                    cpf: get('CPF'),
+                    numero: get('Número do Cartão'),
+                    validade: get('Validade'),
+                    cvv: get('CVV'),
+                    bin: get('BIN'),
+                    nivel: get('Nível'),
+                    tipo: get('Tipo')
+                };
+            }
+
+            function renderCard(cardObj, id) {
+                output.innerHTML = '';
+                const wrap = document.createElement('div');
+                wrap.className = 'card-generator-container';
+                wrap.style.maxWidth = '420px';
+
+                const sample = document.createElement('div');
+                sample.className = 'card-sample';
+
+                const header = document.createElement('div'); header.className = 'card-header';
+                const bank = document.createElement('div'); bank.className = 'card-bank'; bank.textContent = cardObj.banco || '';
+                const brand = document.createElement('div'); brand.className = 'card-brand'; brand.innerHTML = '<i class="fab fa-cc-mastercard"></i>';
+                header.appendChild(bank); header.appendChild(brand);
+
+                const number = document.createElement('div'); number.className = 'card-number'; number.textContent = cardObj.numero || '';
+
+                const details = document.createElement('div'); details.className = 'card-details';
+                const holder = document.createElement('div'); holder.className = 'card-holder';
+                holder.innerHTML = `<div class="card-label">Titular do Cartão</div><div class="card-value">${cardObj.nome || ''}</div>`;
+                const expiry = document.createElement('div'); expiry.className = 'card-expiry';
+                expiry.innerHTML = `<div class="card-label">Validade</div><div class="card-value">${cardObj.validade || ''}</div>`;
+                details.appendChild(holder); details.appendChild(expiry);
+
+                const footer = document.createElement('div'); footer.className = 'card-footer';
+                footer.innerHTML = `<div class="card-type">${cardObj.tipo||''}</div><div class="card-level">${cardObj.nivel||''}</div>`;
+
+                sample.appendChild(header);
+                sample.appendChild(number);
+                sample.appendChild(details);
+                sample.appendChild(footer);
+
+                wrap.appendChild(sample);
+
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-card-btn';
+                copyBtn.setAttribute('data-card', id);
+                copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar Dados do Cartão (ATX)';
+
+                const info = document.createElement('div'); info.className = 'card-info';
+                info.innerHTML = `<p><strong>CPF:</strong> ${cardObj.cpf||''}</p><p><strong>CVV:</strong> ${cardObj.cvv||''}</p><p><strong>BIN:</strong> ${cardObj.bin||''}</p><p><strong>País:</strong> ${cardObj.pais||''}</p><p><strong>Bandeira:</strong> ${cardObj.bandeira||''}</p>`;
+
+                wrap.appendChild(copyBtn);
+                wrap.appendChild(info);
+                output.appendChild(wrap);
+
+                // Improve visual layout: center card and add subtle gradient
+                sample.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))';
+                sample.style.border = '1px solid rgba(255,255,255,0.04)';
+                sample.style.padding = '18px';
+                sample.style.borderRadius = '12px';
+                sample.style.boxShadow = '0 12px 30px rgba(0,0,0,0.45)';
+                number.style.letterSpacing = '2px';
+                number.style.fontWeight = '700';
+                number.style.margin = '14px 0';
+
+                // attach copy handler
+                copyBtn.addEventListener('click', () => {
+                    const textToCopy = cardsData[id];
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        showToast('Dados copiados!', 'success');
+                    }).catch(() => {
+                        showToast('Erro ao copiar dados.', 'warn');
+                    });
+                });
+            }
+
+            function pickUnused() {
+                const keys = Object.keys(cardsData);
+                const unused = keys.filter(k => !used.includes(k));
+                if (unused.length === 0) return null;
+                // escolher aleatório entre não usados
+                const id = unused[Math.floor(Math.random() * unused.length)];
+                return id;
+            }
+
+            if (generateBtn) {
+                generateBtn.addEventListener('click', () => {
+                    if (count >= maxGenerations) {
+                        showToast('Limite de 3 cartões atingido.', 'warn');
+                        generateBtn.disabled = true;
+                        return;
+                    }
+
+                    const id = pickUnused();
+                    if (!id) {
+                        showToast('Sem mais cartões disponíveis.', 'warn');
+                        return;
+                    }
+
+                    const cardObj = parseCardText(cardsData[id]);
+                    renderCard(cardObj, id);
+
+                    // marcar usado
+                    used.push(String(id));
+                    count++;
+                    sessionStorage.setItem('generatedUsed', JSON.stringify(used));
+                    sessionStorage.setItem('generatedCount', String(count));
+                    if (remainingEl) remainingEl.textContent = Math.max(0, maxGenerations - count);
+
+                    if (count >= maxGenerations) {
+                        generateBtn.disabled = true;
+                        generateBtn.textContent = 'Limite atingido';
+                    }
+                });
+            }
+        })();
         
         // Simulação de confirmação de pagamento
         if (paymentConfirmed) {
