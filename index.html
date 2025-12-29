@@ -436,154 +436,7 @@
             flex-shrink: 0;
         }
 
-        /* MODAL PIX - AGORA OTIMIZADO PARA MOBILE */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-pix {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            width: 100%;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow-y: auto;
-            border: 2px solid var(--accent);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .modal-subtitle {
-            color: var(--text-light);
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .pix-code-container {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: var(--radius);
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-            border: 1px solid var(--card-border);
-        }
-
-        .pix-logo-container {
-            margin: 20px auto;
-            width: 220px;
-            height: 220px;
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            padding: 0;
-        }
-
-        .pix-logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .pix-code {
-            font-size: 1rem;
-            font-weight: 600;
-            word-break: break-all;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: var(--radius-sm);
-            border: 1px dashed var(--accent);
-        }
-
-        .pix-instructions {
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: var(--radius);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .pix-instructions ol {
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        .pix-instructions li {
-            margin-bottom: 8px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .copy-pix-btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .copy-pix-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
-        }
-
-        .copy-pix-btn.copied {
-            background: var(--success);
-        }
+        /* MODAL PIX - REMOVIDO */
 
         /* SEÇÃO GERADOR DE CARTÕES */
         .card-generator-section {
@@ -1281,25 +1134,6 @@
                 font-size: 1.5rem;
             }
             
-            .modal-pix {
-                padding: 20px 15px;
-            }
-            
-            .pix-code {
-                font-size: 0.9rem;
-                padding: 12px;
-            }
-            
-            .pix-logo-container {
-                width: 160px;
-                height: 160px;
-            }
-            
-            .card-number {
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-            }
-            
             section {
                 padding: 60px 0;
             }
@@ -1485,9 +1319,9 @@
                     LANÇAMENTO EXCLUSIVO 2026
                 </div>
                 
-                <h1>Domine os Métodos do 7 e Fature Alto com Bancos de Dados</h1>
+                <h1 id="siteTitle">Domine os Métodos do 7 e Fature Alto com Bancos de Dados</h1>
                 
-                <p class="hero-subtitle">
+                <p id="siteSubtitle" class="hero-subtitle">
                     Descubra os segredos dos melhores fornecedores de banco de dados do 7 e aprenda a gerenciar e monetizar essas informações valiosas. Comece a faturar com gestão de lara eficiente.
                 </p>
                 
@@ -1581,73 +1415,6 @@
 
     <!-- Toast container -->
     <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-    <!-- Modal de Pagamento PIX -->
-    <!-- Modal de Captura de Gmail (antes do PIX) -->
-    <div class="modal-overlay" id="emailModal">
-        <div class="modal-pix">
-            <button class="modal-close" id="closeEmailModal">
-                <i class="fas fa-times"></i>
-            </button>
-
-            <h2 class="modal-title">Informe seu Gmail</h2>
-            <p class="modal-subtitle">Informe o seu Gmail para onde enviaremos o link do banco de dados. Após confirmar, você será redirecionado para a tela de pagamento.</p>
-
-            <div style="text-align:center; margin-top:10px;">
-                <input id="emailInput" type="email" placeholder="seunome@gmail.com" style="width:100%;padding:12px;border-radius:8px;border:1px solid var(--card-border);margin:10px 0;background:transparent;color:var(--text);">
-                <button class="btn btn-block" id="emailSubmit">ENVIAR LINK E CONTINUAR</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="pixModal">
-        <div class="modal-pix">
-            <button class="modal-close" id="closePixModal">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <h2 class="modal-title">Pagamento via PIX</h2>
-            <p class="modal-subtitle">Faça o pagamento de <strong>R$ 380,87</strong> via PIX para liberar seu acesso ao curso</p>
-            
-            <div class="pix-code-container">
-                <p class="mb-2">Faça o pagamento de <strong>R$ 380,87</strong> via PIX para liberar seu acesso ao curso</p>
-                
-                <!-- Logo no lugar do QR Code -->
-                <div class="pix-logo-container">
-                    <img src="logo.jpg" alt="Logo Métodos7">
-                </div>
-                
-                <p class="mb-1">Chave PIX (Copie e cole no seu app bancário):</p>
-                <div class="pix-code" id="pixKey">
-                    royal7.gov.cv  <!-- Substitua pela sua chave PIX -->
-                </div>
-                
-                <button class="copy-pix-btn" id="copyPixBtn">
-                    <i class="far fa-copy"></i> Copiar Chave PIX
-                </button>
-            </div>
-            
-            <div class="pix-instructions">
-                <p style="font-weight: 700; margin-bottom: 10px; color: var(--success);">Instruções para pagamento:</p>
-                <ol>
-                    <li>Abra o app do seu banco</li>
-                    <li>Acesse a área PIX</li>
-                    <li>Escolha "Pagar com QR Code" ou "PIX Copia e Cola"</li>
-                    <li>Escaneie o QR Code ou cole a chave PIX</li>
-                    <li>Confirme o pagamento de R$ 380,87</li>
-                    <li>Clique no botão abaixo após o pagamento</li>
-                </ol>
-            </div>
-            
-            <button class="btn btn-block" id="paymentConfirmed">
-                <i class="fas fa-check-circle"></i> JÁ EFETUEI O PAGAMENTO
-            </button>
-            
-            <p class="text-center mt-2" style="font-size: 0.9rem; color: var(--text-light);">
-                Após a confirmação do pagamento, você será redirecionado automaticamente para o grupo VIP do Telegram.
-            </p>
-        </div>
-    </div>
 
     <!-- Seção Gerador de Cartões (ACIMA do Telegram) -->
     <section class="card-generator-section" id="card-generator">
@@ -1816,7 +1583,7 @@
                     
                     <div class="pricing-price">
                         <div class="old-price">De R$ 1.497,00</div>
-                        <div class="new-price">R$ 380,87</div>
+                        <div id="sitePrice" class="new-price">R$ 380,87</div>
                     </div>
                     
                     <ul class="pricing-features">
@@ -2025,6 +1792,9 @@
     </footer>
 
     <script>
+        // Link de pagamento do Stripe
+        const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/bJe14o0nvc7B0OD7WPfrW00";
+        
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -2034,7 +1804,20 @@
             mobileMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
-
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
         // --- Toast / Notificações ---
         function showToast(message, type = 'info', timeout = 2500) {
             const container = document.getElementById('toastContainer');
@@ -2077,77 +1860,27 @@
                 if (toast.parentNode) toast.parentNode.removeChild(toast);
             });
         }
-
-        // Ligar notificações aos botões de compra
+        
+        // Função para redirecionar para o pagamento do Stripe
+        function redirectToStripePayment() {
+            // Adicionar um pequeno delay para dar feedback visual
+            showToast('Redirecionando para a página de pagamento...', 'info', 1500);
+            
+            // Redirecionar após um breve delay
+            setTimeout(() => {
+                window.open(STRIPE_PAYMENT_LINK, '_blank');
+            }, 300);
+        }
+        
+        // Configurar todos os botões de compra para redirecionar para o Stripe
         const buyButtons = ['buyNowHeader', 'buyNowHero', 'buyNowMobile', 'buyNowPricing'];
         buyButtons.forEach(id => {
             const el = document.getElementById(id);
             if (el) {
-                el.addEventListener('click', () => {
-                    // abrir modal de captura de email antes do pagamento
-                    const emailModal = document.getElementById('emailModal');
-                    if (emailModal) {
-                        emailModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                        const emailInput = document.getElementById('emailInput');
-                        if (emailInput) emailInput.focus();
-                    } else {
-                        // fallback: abrir PIX diretamente
-                        const pixModal = document.getElementById('pixModal');
-                        if (pixModal) pixModal.classList.add('active');
-                    }
-                    showToast('Preencha seu Gmail para receber o link e continuar o pagamento.', 'info');
-                });
+                el.addEventListener('click', redirectToStripePayment);
             }
         });
-
-        // Quando pagamento confirmado
-        const paymentConfirmedBtn = document.getElementById('paymentConfirmed');
-        if (paymentConfirmedBtn) {
-            paymentConfirmedBtn.addEventListener('click', () => {
-                showToast('Pagamento confirmado — bem-vindo! Acesso liberado.', 'success');
-                const pixModal = document.getElementById('pixModal');
-                if (pixModal) pixModal.classList.remove('active');
-                // redirect to telegram or simulate
-            });
-        }
-
-        // Email modal handlers
-        const closeEmailBtn = document.getElementById('closeEmailModal');
-        const emailModalEl = document.getElementById('emailModal');
-        const emailSubmitBtn = document.getElementById('emailSubmit');
-        const emailInputEl = document.getElementById('emailInput');
-
-        if (closeEmailBtn) {
-            closeEmailBtn.addEventListener('click', () => {
-                if (emailModalEl) emailModalEl.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        }
-
-        if (emailSubmitBtn) {
-            emailSubmitBtn.addEventListener('click', () => {
-                const email = (emailInputEl && emailInputEl.value) ? emailInputEl.value.trim() : '';
-                // validação simples para Gmail
-                if (!email || !/^[^\s@]+@gmail\.com$/i.test(email)) {
-                    showToast('Informe um Gmail válido (ex.: seunome@gmail.com).', 'warn');
-                    if (emailInputEl) emailInputEl.focus();
-                    return;
-                }
-
-                // simula envio do link
-                showToast(`Link enviado para ${email}`, 'info');
-                if (emailModalEl) emailModalEl.classList.remove('active');
-                document.body.style.overflow = 'auto';
-
-                // abrir modal PIX após um pequeno delay
-                setTimeout(() => {
-                    const pixModal = document.getElementById('pixModal');
-                    if (pixModal) pixModal.classList.add('active');
-                }, 700);
-            });
-        }
-
+        
         // Notificações de compras com nomes aleatórios
         const purchaserNames = [
             'João Silva', 'Maria Oliveira', 'Carlos Souza', 'Ana Pereira', 'Lucas Almeida',
@@ -2190,19 +1923,6 @@
 
             scheduleNext();
         })();
-        
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
         
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -2268,70 +1988,6 @@
                 }
             });
         });
-        
-        // Modal de Pagamento PIX
-        const pixModal = document.getElementById('pixModal');
-        const closePixModal = document.getElementById('closePixModal');
-        const buyNowHero = document.getElementById('buyNowHero');
-        const buyNowPricing = document.getElementById('buyNowPricing');
-        const buyNowHeader = document.getElementById('buyNowHeader');
-        const buyNowMobile = document.getElementById('buyNowMobile');
-        const copyPixBtn = document.getElementById('copyPixBtn');
-        const pixKey = document.getElementById('pixKey');
-        const paymentConfirmed = document.getElementById('paymentConfirmed');
-        
-        // URL do seu grupo do Telegram
-        const telegramGroupUrl = "https://t.me/tropahc";
-        
-        // Abrir modal de pagamento PIX
-        function openPixModal() {
-            pixModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Fechar modal de pagamento PIX
-        function closePixModalFunc() {
-            pixModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Event listeners para abrir modal
-        // NOTE: abertura do modal PIX agora é feita após captura do email (veja handlers acima)
-        
-        // Event listener para fechar modal
-        if (closePixModal) closePixModal.addEventListener('click', closePixModalFunc);
-        
-        // Fechar modal ao clicar fora dele
-        pixModal.addEventListener('click', (e) => {
-            if (e.target === pixModal) {
-                closePixModalFunc();
-            }
-        });
-        
-        // Copiar chave PIX
-        if (copyPixBtn) {
-            copyPixBtn.addEventListener('click', () => {
-                const textToCopy = pixKey.textContent.trim();
-                
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    // Feedback visual
-                    const originalText = copyPixBtn.innerHTML;
-                    copyPixBtn.innerHTML = '<i class="fas fa-check"></i> Chave Copiada!';
-                    copyPixBtn.classList.add('copied');
-                    
-                    setTimeout(() => {
-                        copyPixBtn.innerHTML = originalText;
-                        copyPixBtn.classList.remove('copied');
-                    }, 2000);
-                    
-                    // Notificação
-                    alert('Chave PIX copiada para a área de transferência! Agora cole no seu app bancário.');
-                }).catch(err => {
-                    console.error('Erro ao copiar texto: ', err);
-                    alert('Não foi possível copiar a chave PIX. Tente selecionar e copiar manualmente.');
-                });
-            });
-        }
         
         // Dados dos cartões para copiar em formato ATX
         const cardsData = {
@@ -2400,10 +2056,10 @@ Tipo: CREDIT
                     }, 2000);
                     
                     // Notificação
-                    alert(`Dados do Cartão ${cardNumber} copiados em formato ATX!`);
+                    showToast(`Dados do Cartão ${cardNumber} copiados em formato ATX!`, 'success');
                 }).catch(err => {
                     console.error('Erro ao copiar texto: ', err);
-                    alert('Não foi possível copiar os dados. Tente selecionar e copiar manualmente.');
+                    showToast('Não foi possível copiar os dados. Tente selecionar e copiar manualmente.', 'warn');
                 });
             });
         });
@@ -2547,30 +2203,32 @@ Tipo: CREDIT
             }
         })();
         
-        // Simulação de confirmação de pagamento
-        if (paymentConfirmed) {
-            paymentConfirmed.addEventListener('click', () => {
-                const confirmed = confirm('✅ Pagamento confirmado com sucesso!\n\nVocê será redirecionado para o grupo VIP do Telegram onde todo o conteúdo será disponibilizado.\n\nClique em OK para continuar.');
-                
-                if (confirmed) {
-                    // Redirecionar para o grupo do Telegram
-                    window.open(telegramGroupUrl, '_blank');
-                    
-                    // Fechar modal
-                    closePixModalFunc();
-                    
-                    // Rolar para a seção do Telegram
-                    setTimeout(() => {
-                        document.getElementById('telegram').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
-                    
-                    // Mensagem de sucesso
-                    setTimeout(() => {
-                        alert('🎉 Parabéns! Agora você faz parte do grupo VIP!\n\nAcesse o Telegram para começar a receber o conteúdo do curso.');
-                    }, 1000);
+        // Contador de visitas (incrementa ao carregar a página)
+        (function trackVisit() {
+            try {
+                // prefer backend tracking if available
+                if (navigator && navigator.onLine) {
+                    fetch('/api/visits', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ pathname: location.pathname }) }).catch(()=>{
+                        // fallback to localStorage
+                        const raw = localStorage.getItem('admin_visits');
+                        let v = raw ? JSON.parse(raw) : { count: 0, visits: [] };
+                        v.count = (v.count || 0) + 1;
+                        v.visits = v.visits || [];
+                        v.visits.push({ at: Date.now(), pathname: location.pathname });
+                        if (v.visits.length > 500) v.visits = v.visits.slice(-500);
+                        localStorage.setItem('admin_visits', JSON.stringify(v));
+                    });
+                } else {
+                    const raw = localStorage.getItem('admin_visits');
+                    let v = raw ? JSON.parse(raw) : { count: 0, visits: [] };
+                    v.count = (v.count || 0) + 1;
+                    v.visits = v.visits || [];
+                    v.visits.push({ at: Date.now(), pathname: location.pathname });
+                    if (v.visits.length > 500) v.visits = v.visits.slice(-500);
+                    localStorage.setItem('admin_visits', JSON.stringify(v));
                 }
-            });
-        }
+            } catch (e) { console.error('Erro ao registrar visita', e); }
+        })();
         
         // Evitar zoom em inputs no iOS
         document.addEventListener('touchstart', function() {}, {passive: true});
@@ -2595,6 +2253,43 @@ Tipo: CREDIT
                 const currentYear = new Date().getFullYear();
                 yearSpan.innerHTML = yearSpan.innerHTML.replace('2023', currentYear);
             }
+
+            // Tentar carregar conteúdo do servidor (/api/content) e aplicar no site
+            (function loadRemoteContent(){
+                fetch('/api/content').then(r => {
+                    if (!r.ok) throw new Error('no content');
+                    return r.json();
+                }).then(c => {
+                    if (!c) return;
+                    const titleEl = document.getElementById('siteTitle');
+                    const subEl = document.getElementById('siteSubtitle');
+                    const priceEl = document.getElementById('sitePrice');
+                    const videoEl = document.getElementById('presentationVideo');
+                    const logoImg = document.querySelector('.logo-icon img');
+                    if (titleEl && c.siteTitle) titleEl.textContent = c.siteTitle;
+                    if (subEl && c.siteSubtitle) subEl.textContent = c.siteSubtitle;
+                    if (priceEl && c.price) priceEl.textContent = 'R$ ' + String(c.price);
+                    if (videoEl && c.video) videoEl.src = c.video;
+                    if (logoImg && c.logo) logoImg.src = c.logo;
+                }).catch(() => {
+                    // fallback to localStorage
+                    try{
+                        const raw = localStorage.getItem('site_content');
+                        if (!raw) return;
+                        const c = JSON.parse(raw);
+                        const titleEl = document.getElementById('siteTitle');
+                        const subEl = document.getElementById('siteSubtitle');
+                        const priceEl = document.getElementById('sitePrice');
+                        const videoEl = document.getElementById('presentationVideo');
+                        const logoImg = document.querySelector('.logo-icon img');
+                        if (titleEl && c.siteTitle) titleEl.textContent = c.siteTitle;
+                        if (subEl && c.siteSubtitle) subEl.textContent = c.siteSubtitle;
+                        if (priceEl && c.price) priceEl.textContent = 'R$ ' + String(c.price);
+                        if (videoEl && c.video) videoEl.src = c.video;
+                        if (logoImg && c.logo) logoImg.src = c.logo;
+                    }catch(e){/* ignore */}
+                });
+            })();
         });
     </script>
 </body>
